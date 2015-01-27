@@ -345,4 +345,10 @@ public class CityConnect {
 		String[] parameters = commandParametersString.trim().split("\\s+");
 		return parameters;
 	}
+	
+	
+	//this method is strictly for testing with JUnit. Resets route between tests. 
+	public static void setupForTesting(){
+		route = new String[10][3];
+	}
 }
