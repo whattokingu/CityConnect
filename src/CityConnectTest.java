@@ -39,15 +39,45 @@ public class CityConnectTest {
 		assertEquals("Route from aaa to bbb with distance 23km added",CityConnect.executeCommand(input));	
 	}
 	@Test
-	public void testgetDistance(){
+	public void testGetDistance(){
 		CityConnect.setupForTesting();
 		String input="addroute aaa bbb 23";
 		CityConnect.executeCommand(input);
 		
 		input="getdistance bbb aaa";
 		
-		assertEquals("Distance from aaa to bbb is 23",CityConnect.executeCommand(input));	
+		assertEquals("Distance from bbb to aaa is 23",CityConnect.executeCommand(input));	
+	}
+	@Test
+	public void testMaxMemory(){
+		CityConnect.setupForTesting();
+		String input="addroute aaa bbb 23";
+		CityConnect.executeCommand(input);
+		//can probably do a loop
+		input="addroute aab bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aac bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aad bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aae bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aaf bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aag bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aah bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aai bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aaj bbb 23";
+		CityConnect.executeCommand(input);
+		input="addroute aak bbb 23";
+
 		
+		assertEquals("No more space to store locations",CityConnect.executeCommand(input));	
 	}
 	
 }
+
+
